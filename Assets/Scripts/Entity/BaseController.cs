@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.SceneManagement;
 
 // 캐릭터의 기본 컨트롤을 담당하는 클래스
 public class BaseController : MonoBehaviour
@@ -138,5 +139,16 @@ public class BaseController : MonoBehaviour
         }
 
         Destroy(gameObject, 2f);    // 2초 후 객체 제거
+    }
+
+    // NPC와 충돌했을 때 미니게임 씬으로 이동
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // 충돌한 객체가 NPC인지 확인
+        if (collision.gameObject.CompareTag("NPC"))
+        {
+            // 미니게임 씬으로 이동
+            SceneManager.LoadScene("GameScene"); 
+        }
     }
 }
