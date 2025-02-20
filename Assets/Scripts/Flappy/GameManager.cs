@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return gameManager; } }  
     private int currentScore = 0;   // 현재 점수 (게임 내에서 점수를 관리하는 변수)
     UIManager uiManager;    // UI 매니저를 참조할 변수
+    private bool gameStarted = false;  // 게임 시작 여부 확인
 
     // UI 매니저를 외부에서 접근할 수 있도록 public 프로퍼티로 제공
     public UIManager UIManager { get { return uiManager;}}
@@ -25,8 +26,27 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        uiManager.SetRestart();     // UI 매니저의 재시작 버튼 활성화
+        Time.timeScale = 0;  // 게임을 멈춤
         uiManager.UpdateScore(0);   // 게임 시작 시 점수를 0으로 설정하고 UI에 반영
+        uiManager.SetStart(true);     // UI 매니저의 재시작 버튼 활성화
+    }
+
+    private void Update()
+    {
+        if (!gameStarted) // 아직 게임이 시작되지 않았다면
+        {
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                StartGame();
+            }
+        }
+    }
+
+    private void StartGame()
+    {
+        gameStarted = true;
+        uiManager.SetStart(false);  // "Click to Start" 문구 숨기기
+        Time.timeScale = 1;  // 게임 시작
     }
 
     public void GameOver()
@@ -45,7 +65,6 @@ public class GameManager : MonoBehaviour
     public void AddScore(int score)
     {
         currentScore += score;  // 현재 점수에 추가 점수를 더함
-        Debug.Log("Score: " + currentScore);    // 콘솔에 현재 점수 출력
         uiManager.UpdateScore(currentScore);    // 점수 증가 시 UI 매니저의 UpdateScore로 currentScore를 전달(업데이트)
     }
 }   

@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;   // (인스펙터에서 설정) 점수를 표시하는 UI 텍스트
     public TextMeshProUGUI restartText; // (인스펙터에서 설정) 재시작 안내 문구 UI 텍스트
+    public TextMeshProUGUI startText; // (인스펙터에서 설정) 최초 시작 안내 문구 UI 텍스트
 
     void Start()
     {
@@ -20,6 +21,16 @@ public class UIManager : MonoBehaviour
 
         // 게임 시작 시 재시작 텍스트를 숨김 (처음에는 보일 필요가 없음)
         restartText.gameObject.SetActive(false);
+        
+        // 시작 텍스트는 보여주기
+        startText.gameObject.SetActive(true);
+    }
+
+    // 게임 오버 시 재시작 안내 문구를 표시하는 함수
+    public void SetStart(bool show)
+    {
+        // startText를 켜주는 작업
+        startText.gameObject.SetActive(show); // 재시작 텍스트 활성화
     }
 
     // 게임 오버 시 재시작 안내 문구를 표시하는 함수
