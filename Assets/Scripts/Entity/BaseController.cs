@@ -26,7 +26,6 @@ public class BaseController : MonoBehaviour
     protected StatHandler statHandler;              // 캐릭터의 스탯을 관리하는 컴포넌트
 
     protected bool isAttacking;                         // 현재 공격 중인지 여부
-    private float timeSinceLastAttack = float.MaxValue; // 마지막 공격 후 경과한 시간 (처음에는 무한대)
 
     // 게임 오브젝트가 생성될 때 호출(초기화 작업)
     protected virtual void Awake()
