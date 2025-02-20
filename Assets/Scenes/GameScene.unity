@@ -1776,7 +1776,6 @@ GameObject:
   - component: {fileID: 618841244}
   - component: {fileID: 618841243}
   - component: {fileID: 618841242}
-  - component: {fileID: 618841246}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -1828,7 +1827,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 618841246}
+      - m_Target: {fileID: 1090161305}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -1895,21 +1894,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -250}
+  m_AnchoredPosition: {x: 0, y: -220}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &618841246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 618841241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e4e7f1b927184e769059fc5bf5954b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &633214758
 GameObject:
   m_ObjectHideFlags: 0
@@ -4703,7 +4690,6 @@ GameObject:
   - component: {fileID: 1962176172}
   - component: {fileID: 1962176171}
   - component: {fileID: 1962176170}
-  - component: {fileID: 1962176174}
   m_Layer: 5
   m_Name: MainButton
   m_TagString: Untagged
@@ -4755,7 +4741,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1962176174}
+      - m_Target: {fileID: 1090161305}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: GoToMenu
         m_Mode: 1
@@ -4822,21 +4808,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -370}
+  m_AnchoredPosition: {x: 0, y: -350}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1962176174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962176169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e4e7f1b927184e769059fc5bf5954b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1965447735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2315972014874170039, guid: 9a4d537c9f2d143d586cff5cc902169a, type: 3}
@@ -5047,7 +5021,6 @@ GameObject:
   - component: {fileID: 2141447704}
   - component: {fileID: 2141447703}
   - component: {fileID: 2141447707}
-  - component: {fileID: 2141447708}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5159,18 +5132,6 @@ MonoBehaviour:
   startText: {fileID: 1410803589}
   restartButton: {fileID: 618841242}
   mainButton: {fileID: 1962176170}
---- !u!114 &2141447708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141447702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e4e7f1b927184e769059fc5bf5954b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4433389325805187894
 PrefabInstance:
   m_ObjectHideFlags: 0

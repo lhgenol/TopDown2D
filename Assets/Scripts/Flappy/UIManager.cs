@@ -28,19 +28,11 @@ public class UIManager : MonoBehaviour
         startText.gameObject.SetActive(show);  // 시작 텍스트 활성화
     }
 
-    // // 게임 오버 시 재시작 안내 문구를 표시하는 함수
-    // public void SetRestart()
-    // {
-    //     gameOverText.gameObject.SetActive(true); // 재시작 텍스트 활성화
-    //     restartButton.gameObject.SetActive(true); // 재시작 버튼 활성화
-    //     mainButton.gameObject.SetActive(true);    // 메인 버튼 활성화
-    // }
-
     // 게임 오버 시 게임 오버 문구 및 버튼 표시하는 함수
     public void SetGameOverUI()
     {
         startText.gameObject.SetActive(false);      // 시작 문구 숨기기
-        gameOverText.gameObject.SetActive(true);     // 게임 오버 문구 활성화
+        gameOverText.gameObject.SetActive(true);    // 게임 오버 문구 활성화
         restartButton.gameObject.SetActive(true);   // 재시작 버튼 활성화
         mainButton.gameObject.SetActive(true);      // 메인 버튼 활성화
     }
