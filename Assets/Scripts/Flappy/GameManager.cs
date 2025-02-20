@@ -51,8 +51,15 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("GameOver");      // 콘솔에 게임 오버 메시지 출력
-        uiManager.SetRestart();     // UI 매니저의 재시작 버튼 활성화
+        uiManager.SetStart(false);     // 게임 오버 시 "Click to Start" 문구 숨기기
+        uiManager.SetGameOverUI();     // UI 매니저의 재시작 버튼 활성화
+    }
+
+    // 점수를 추가하고 UI에 업데이트
+    public void AddScore(int score)
+    {
+        currentScore += score;  // 현재 점수에 추가 점수를 더함
+        uiManager.UpdateScore(currentScore);    // 점수 증가 시 UI 매니저의 UpdateScore로 currentScore를 전달(업데이트)
     }
 
     public void RestartGame()
@@ -61,10 +68,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // 점수를 추가하고 UI에 업데이트
-    public void AddScore(int score)
+    public void GoToMenu()
     {
-        currentScore += score;  // 현재 점수에 추가 점수를 더함
-        uiManager.UpdateScore(currentScore);    // 점수 증가 시 UI 매니저의 UpdateScore로 currentScore를 전달(업데이트)
+        SceneManager.LoadScene("SampleScene");  // 메인 씬으로 이동
     }
 }   
