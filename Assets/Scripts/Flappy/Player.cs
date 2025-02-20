@@ -24,14 +24,6 @@ public class Player : MonoBehaviour
         gameManager = GameManager.Instance;             // 싱글톤 GameManager 인스턴스 가져오기
         animator = GetComponentInChildren<Animator>();  // 자식 오브젝트에서 Animator 컴포넌트 찾기
         _rigidbody = GetComponent<Rigidbody2D>();       // Rigidbody2D 컴포넌트 찾기
-
-        // Animator가 없을 경우 오류 메시지 출력
-        if(animator == null)
-            Debug.LogError("Not Founded Animator");
-
-        // Rigidbody2D가 없을 경우 오류 메시지 출력
-        if(_rigidbody == null)
-            Debug.LogError("Not Founded Rigidbody");
     }
 
     void Update()

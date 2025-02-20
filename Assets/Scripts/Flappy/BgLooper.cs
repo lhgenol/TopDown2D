@@ -32,9 +32,6 @@ public class BgLooper : MonoBehaviour
     // BgLooper랑 충돌(Trigger)하는 장애물들 위치를 뒤로 랜덤 재배치
     private void OnTriggerEnter2D(Collider2D collision) // OnTriggerEnter2D: 실제 물리 충돌이 아닌 충돌에 대한 통보만 해줌
     {
-        Debug.Log("Triggerd: " + collision.name);   // 충돌한 오브젝트의 이름을 로그로 출력
-
-        // 충돌한 오브젝트의 태그가 "BackGround"라면
         if(collision.CompareTag("BackGround"))  // 충돌한 물체의 태그가 BackGround라면
         {   
             // 충돌한 배경 오브젝트의 BoxCollider2D를 가져와 가로 길이를 구함

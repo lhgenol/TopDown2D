@@ -24,16 +24,4 @@ public class AnimationHandler : MonoBehaviour
         // obj.magnitude: 벡터의 크기(이동의 정도)가 0.5 이상이면 움직임 애니메이션을 실행
         animator.SetBool(IsMoving, obj.magnitude > 0.5f);
     }
-
-    // 데미지 애니메이션을 실행하는 메서드
-    public void Damage()
-    {
-        animator.SetBool(IsDamage, true);
-    }
-
-    // 무적 상태가 끝났음을 애니메이터에 전달하는 메서드
-    public void InvincibilityEnd()  // 무적이 끝나는 시간 체크
-    {
-        animator.SetBool(IsDamage, false);
-    }
 }
