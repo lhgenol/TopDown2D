@@ -94,20 +94,6 @@ public class BaseController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 넉백 적용. 공격을 맞았을 때 밀려나는 효과 적용 (넉백을 얼마만큼 적용할 건지 방향과 시간 지정)
-    /// </summary>
-    /// <param name="other">넉백을 발생시킨 대상</param>
-    /// <param name="power">넉백 힘</param>
-    /// <param name="duration">넉백 지속 시간</param>
-    public void ApplyKnockback(Transform other, float power, float duration)
-    {
-        knockbackDuration = duration;   // 넉백 지속 시간 설정
-
-        // other(공격자)와 플레이어 사이의 벡터를 구하고, 반대 방향(-)으로 힘을 가함
-        knockback = -(other.position - transform.position). normalized * power;
-    }
-
     // 공격 딜레이를 관리해 일정 시간(간격)마다 공격할 수 있도록 처리
     private void HandleAttackDelay()    
     {

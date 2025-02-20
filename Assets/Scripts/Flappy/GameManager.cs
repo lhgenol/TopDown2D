@@ -5,44 +5,47 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    static GameManager gameManager;     // 싱글톤 패턴 - 자신을 참조할 수 있는 static 변수
+    static GameManager gameManager;     // 싱글톤 패턴 - 자기 자신을 참조할 수 있는 static 변수
 
-    // 싱글톤 패턴 - static 변수를 외부로 가져갈 수 있는 프로퍼티 하나
+    // 싱글톤 패턴 - 외부에서 GameManager 인스턴스에 접근할 수 있도록 하는 프로퍼티
     public static GameManager Instance { get { return gameManager; } }  
+    private int currentScore = 0;   // 현재 점수 (게임 내에서 점수를 관리하는 변수)
+    UIManager uiManager;    // UI 매니저를 참조할 변수
 
-    private int currentScore = 0;   // 현재 점수 변수 초기화
-
-    UIManager uiManager;    // UI 매니저 접근
-
-    // 외부에서 UI 매니저를 써야할 수도 있기 때문에 get 만들기
+    // UI 매니저를 외부에서 접근할 수 있도록 public 프로퍼티로 제공
     public UIManager UIManager { get { return uiManager;}}
 
     private void Awake()
     {
-        gameManager = this;     // 싱글톤 패턴 - 가장 최초의 객체를 설정해주는 작업
-        uiManager = FindObjectOfType<UIManager>();  // UI 매니저 찾아오기
+        // 싱글톤 패턴 - 게임 매니저 인스턴스가 최초로 생성될 때 자기 자신(객체)을 등록
+        gameManager = this;    
+        // UI 매니저를 씬에서 찾아서 참조
+        uiManager = FindObjectOfType<UIManager>(); 
     }
 
     private void Start()
     {
-        uiManager.UpdateScore(0);   // 게임 시작 시 점수를 0으로 만들기
+        uiManager.SetRestart();     // UI 매니저의 재시작 버튼 활성화
+        uiManager.UpdateScore(0);   // 게임 시작 시 점수를 0으로 설정하고 UI에 반영
     }
 
     public void GameOver()
     {
-        Debug.Log("GameOver");
-        uiManager.SetRestart();     // 게임 종료시 SetRestart 호출
+        Debug.Log("GameOver");      // 콘솔에 게임 오버 메시지 출력
+        uiManager.SetRestart();     // UI 매니저의 재시작 버튼 활성화
     }
 
     public void RestartGame()
     {
+        // 현재 활성화된 씬(게임 씬)을 다시 로드하여 게임을 재시작
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    // 점수를 추가하고 UI에 업데이트
     public void AddScore(int score)
     {
-        currentScore += score;
-        Debug.Log("Score: " + currentScore);
-        uiManager.UpdateScore(currentScore);    // 점수가 증가했을 때 UI 매니저의 UpdateScore로 currentScore를 전달
+        currentScore += score;  // 현재 점수에 추가 점수를 더함
+        Debug.Log("Score: " + currentScore);    // 콘솔에 현재 점수 출력
+        uiManager.UpdateScore(currentScore);    // 점수 증가 시 UI 매니저의 UpdateScore로 currentScore를 전달(업데이트)
     }
 }   
